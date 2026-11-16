@@ -1,0 +1,10 @@
+{
+  "name": "hardware-monitor-applet",
+  "version": "0.1.0",
+  "private": true,
+  "license": "GPL-3.0-only",
+  "description": "Local hardware monitoring applet for Cinnamon",
+  "scripts": {
+    "test": "node --test"
+  }
+}

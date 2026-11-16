@@ -1,0 +1,19 @@
+# Dependências e saídas de desenvolvimento
+node_modules/
+coverage/
+dist/
+*.log
+
+# Credenciais e configurações locais
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Arquivos pessoais do editor e do sistema
+.idea/
+.vscode/
+.DS_Store
+*~
+*.swp
