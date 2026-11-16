@@ -1,0 +1,20 @@
+[
+  {
+    "path": "/sys/class/hwmon/hwmon0/temp1_input",
+    "name": "coretemp",
+    "label": "Package id 0",
+    "source": "hwmon"
+  },
+  {
+    "path": "/sys/class/hwmon/hwmon0/temp2_input",
+    "name": "coretemp",
+    "label": "Core 0",
+    "source": "hwmon"
+  },
+  {
+    "path": "/sys/class/hwmon/hwmon1/temp1_input",
+    "name": "amdgpu",
+    "label": "edge",
+    "source": "hwmon"
+  }
+]
