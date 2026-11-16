@@ -1,0 +1,8 @@
+{
+  "uuid": "hardware-monitor@unimestre",
+  "name": "Hardware Monitor",
+  "description": "CPU, memory, temperature and network activity in the Cinnamon panel",
+  "icon": "utilities-system-monitor",
+  "cinnamon-version": ["6.6"],
+  "max-instances": -1
+}

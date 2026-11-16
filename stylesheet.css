@@ -1,0 +1,180 @@
+.hardware-monitor-applet {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.hardware-monitor-applet:hover,
+.hardware-monitor-applet:checked {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.hardware-monitor-panel {
+  spacing: 7px;
+  padding: 0 4px;
+}
+
+.hardware-monitor-panel-metric {
+  spacing: 4px;
+  padding: 0 4px;
+}
+
+.hardware-monitor-panel-reading {
+  spacing: 0;
+}
+
+.hardware-monitor-panel-name {
+  color: #b9c4dc;
+  font-size: 5px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.hardware-monitor-panel-value {
+  color: #f5f7ff;
+  font-size: 8px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.hardware-monitor-panel-gauge {
+  width: 10px;
+  height: 16px;
+  padding: 1px;
+  border: 1px solid rgba(205, 215, 255, 0.55);
+  border-radius: 3px;
+  background-color: rgba(14, 20, 43, 0.4);
+}
+
+.hardware-monitor-panel-fill {
+  width: 10px;
+  background-color: #429cff;
+  border-radius: 1px;
+}
+
+.hardware-monitor-panel-temperature {
+  color: #ffd18b;
+  font-size: 7px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.hardware-monitor-panel-network {
+  color: #d6dcef;
+  font-size: 9px;
+  padding-left: 2px;
+}
+
+.hardware-monitor-menu .popup-menu-content {
+  padding: 0;
+  background-color: rgba(30, 33, 62, 0.97);
+  border: 1px solid rgba(194, 202, 255, 0.18);
+  border-radius: 18px;
+}
+
+.hardware-monitor-dashboard {
+  color: #f7f8ff;
+  min-width: 330px;
+  padding: 16px;
+  spacing: 12px;
+}
+
+.hardware-monitor-header {
+  spacing: 12px;
+  padding: 2px 2px 4px;
+}
+
+.hardware-monitor-title {
+  color: #f7f8ff;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.hardware-monitor-live {
+  color: #a8f0cf;
+  background-color: rgba(67, 190, 137, 0.17);
+  border-radius: 10px;
+  font-size: 9px;
+  font-weight: bold;
+  padding: 4px 7px;
+}
+
+.hardware-monitor-metric-row {
+  spacing: 12px;
+}
+
+.hardware-monitor-card,
+.hardware-monitor-wide-card {
+  background-color: rgba(255, 255, 255, 0.075);
+  border: 1px solid rgba(255, 255, 255, 0.055);
+  border-radius: 13px;
+  padding: 14px;
+}
+
+.hardware-monitor-card {
+  width: 160px;
+  spacing: 6px;
+}
+
+.hardware-monitor-card-title {
+  color: #b9c4dc;
+  font-size: 9px;
+  font-weight: bold;
+}
+
+.hardware-monitor-card-value {
+  color: #f7f8ff;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.hardware-monitor-card-graph {
+  color: #68aaff;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.hardware-monitor-card-detail {
+  color: #aeb9d3;
+  font-size: 9px;
+}
+
+.hardware-monitor-wide-card {
+  spacing: 16px;
+  padding: 14px;
+}
+
+.hardware-monitor-wide-card-copy {
+  spacing: 5px;
+}
+
+.hardware-monitor-wide-card-value {
+  color: #ffd18b;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: right;
+}
+
+.hardware-monitor-network-card {
+  spacing: 12px;
+}
+
+.hardware-monitor-network-header,
+.hardware-monitor-network-rates {
+  spacing: 12px;
+}
+
+.hardware-monitor-network-rate {
+  background-color: rgba(255, 255, 255, 0.045);
+  border-radius: 9px;
+  padding: 10px 12px;
+  spacing: 5px;
+}
+
+.hardware-monitor-network-value {
+  color: #f7f8ff;
+  font-size: 14px;
+  font-weight: bold;
+}
