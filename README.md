@@ -31,6 +31,9 @@ sistema de arquivos, não necessariamente disponíveis para usuários comuns.
 - O painel mostra medidores verticais de preenchimento para CPU e RAM, com a
   temperatura abaixo do percentual da CPU. No popup, gráficos de linha exibem
   até 60 amostras alinhadas (cerca de três minutos), apenas em memória.
+- As barras ficam verdes abaixo de 70%, âmbar a partir de 70% e vermelhas a
+  partir de 90%. A temperatura fica verde abaixo de 60 °C, âmbar a partir de
+  60 °C e vermelha a partir de 80 °C; leituras indisponíveis usam tom neutro.
 - Não executa comandos externos, não mantém daemon, histórico persistente ou
   telemetria.
 - Se um sensor ou uma interface não estiver disponível, mostra `—` e continua

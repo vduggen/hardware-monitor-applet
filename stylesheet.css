@@ -54,6 +54,22 @@
   border-radius: 1px;
 }
 
+.hardware-monitor-panel-fill.hardware-monitor-status-normal {
+  background-color: #55d6a5;
+}
+
+.hardware-monitor-panel-fill.hardware-monitor-status-warning {
+  background-color: #ffc857;
+}
+
+.hardware-monitor-panel-fill.hardware-monitor-status-critical {
+  background-color: #ff6b6b;
+}
+
+.hardware-monitor-panel-fill.hardware-monitor-status-unavailable {
+  background-color: #858da5;
+}
+
 .hardware-monitor-panel-temperature {
   color: #ffd18b;
   font-size: 7px;
@@ -155,6 +171,26 @@
   font-size: 20px;
   font-weight: bold;
   text-align: right;
+}
+
+.hardware-monitor-panel-temperature.hardware-monitor-status-normal,
+.hardware-monitor-temperature-value.hardware-monitor-status-normal {
+  color: #55d6a5;
+}
+
+.hardware-monitor-panel-temperature.hardware-monitor-status-warning,
+.hardware-monitor-temperature-value.hardware-monitor-status-warning {
+  color: #ffc857;
+}
+
+.hardware-monitor-panel-temperature.hardware-monitor-status-critical,
+.hardware-monitor-temperature-value.hardware-monitor-status-critical {
+  color: #ff6b6b;
+}
+
+.hardware-monitor-panel-temperature.hardware-monitor-status-unavailable,
+.hardware-monitor-temperature-value.hardware-monitor-status-unavailable {
+  color: #aeb9d3;
 }
 
 .hardware-monitor-network-card {

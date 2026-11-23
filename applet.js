@@ -62,6 +62,7 @@ class HardwareMonitorApplet extends Applet.Applet {
         this._cpuHistory = [];
         this._memoryHistory = [];
         this._temperatureSensor = null;
+        this._visualStatuses = new WeakMap();
         this._storageRequest = null;
         this._values = {
             cpuPercent: null,
@@ -612,6 +613,37 @@ class HardwareMonitorApplet extends Applet.Applet {
         return `${this._formatPercent(memory.percent)} · ${(memory.usedBytes / (1024 ** 3)).toFixed(1)} / ${(memory.totalBytes / (1024 ** 3)).toFixed(1)} GiB`;
     }
 
+    _setVisualStatus(actor, status) {
+        const previousStatus = this._visualStatuses.get(actor);
+        if (previousStatus === status)
+            return;
+
+        if (previousStatus)
+            actor.remove_style_class_name(`hardware-monitor-status-${previousStatus}`);
+        actor.add_style_class_name(`hardware-monitor-status-${status}`);
+        this._visualStatuses.set(actor, status);
+    }
+
+    _usageStatus(value) {
+        if (!Number.isFinite(value))
+            return "unavailable";
+        if (value >= 90)
+            return "critical";
+        if (value >= 70)
+            return "warning";
+        return "normal";
+    }
+
+    _temperatureStatus(value) {
+        if (!Number.isFinite(value))
+            return "unavailable";
+        if (value >= 80)
+            return "critical";
+        if (value >= 60)
+            return "warning";
+        return "normal";
+    }
+
     _render() {
         const cpu = this._formatPercent(this._values.cpuPercent);
         const temperature = this._formatTemperature(this._values.temperatureC);
@@ -625,12 +657,23 @@ class HardwareMonitorApplet extends Applet.Applet {
         this._panelCpu.valueLabel.set_text(cpu);
         this._panelCpu.fill.set_height(Number.isFinite(this._values.cpuPercent)
             ? Math.round(this._values.cpuPercent / 100 * 16) : 0);
+        this._setVisualStatus(this._panelCpu.fill, this._usageStatus(this._values.cpuPercent));
         this._panelMemory.valueLabel.set_text(memoryPercent);
         this._panelMemory.fill.set_height(this._values.memory
             ? Math.round(this._values.memory.percent / 100 * 16) : 0);
+        this._setVisualStatus(
+            this._panelMemory.fill,
+            this._usageStatus(this._values.memory ? this._values.memory.percent : null)
+        );
         this._panelStorage.valueLabel.set_text(storagePercent);
         this._panelStorage.fill.set_height(storage ? Math.round(storage.percent / 100 * 16) : 0);
+        this._setVisualStatus(
+            this._panelStorage.fill,
+            this._usageStatus(storage ? storage.percent : null)
+        );
         this._panelTemperature.set_text(temperature);
+        const temperatureStatus = this._temperatureStatus(this._values.temperatureC);
+        this._setVisualStatus(this._panelTemperature, temperatureStatus);
         this._panelNetwork.set_text(`↓${download} ↑${upload}`);
         this.set_applet_tooltip(`CPU ${cpu} · ${temperature} · RAM ${memory} · Disco / ${storagePercent} · ↓${download} ↑${upload}`);
 
@@ -649,6 +692,7 @@ class HardwareMonitorApplet extends Applet.Applet {
             ? `${(storage.usedBytes / 1024 ** 3).toFixed(1)} / ${(storage.totalBytes / 1024 ** 3).toFixed(1)} GiB · ${(storage.freeBytes / 1024 ** 3).toFixed(1)} GiB livres`
             : _("Armazenamento indisponível"));
         this._popupTemperature.valueLabel.set_text(temperature);
+        this._setVisualStatus(this._popupTemperature.valueLabel, temperatureStatus);
         this._popupTemperature.detailLabel.set_text(
             this._temperatureSensor
                 ? (this._temperatureSensor.label || this._temperatureSensor.name)
